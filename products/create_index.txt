@@ -1,0 +1,23 @@
+PUT /products
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 1
+  },
+  "mappings": {
+    "properties": {
+      "id": {"type": "integer"},
+      "title": {"type": "text"},
+      "price": {"type": "double"},
+      "description": {"type": "text"},
+      "category": {"type": "keyword"},
+      "image": {"type": "keyword"},
+      "rating": {
+        "properties": {
+          "rate": {"type": "double"},
+          "count": {"type": "integer"}
+        }
+      }
+    }
+  }
+}
