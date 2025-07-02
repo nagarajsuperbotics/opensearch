@@ -9,7 +9,7 @@ services:
       - discovery.type=single-node  # Critical for single-node setup
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"  # Adjust heap size as needed
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD="D0cker#OpenSearch"  # Strong password
+      - OPENSEARCH_INITIAL_ADMIN_PASSWORD=${OPENSEARCH_INITIAL_ADMIN_PASSWORD}
     ulimits:
       memlock:
         soft: -1
