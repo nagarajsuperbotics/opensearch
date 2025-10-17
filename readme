@@ -1,2 +1,0 @@
-export OPENSEARCH_INITIAL_ADMIN_PASSWORD="D0cker#OpenSearch"
-docker-compose up -d

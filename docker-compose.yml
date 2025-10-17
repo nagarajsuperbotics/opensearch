@@ -1,7 +1,7 @@
 version: '3'
 services:
   opensearch-single-node:
-    image: opensearchproject/opensearch:latest
+    image: opensearchproject/opensearch:3
     container_name: opensearch-single-node
     environment:
       - cluster.name=opensearch-single-node-cluster
@@ -9,7 +9,7 @@ services:
       - discovery.type=single-node  # Critical for single-node setup
       - bootstrap.memory_lock=true
       - "OPENSEARCH_JAVA_OPTS=-Xms512m -Xmx512m"  # Adjust heap size as needed
-      - OPENSEARCH_INITIAL_ADMIN_PASSWORD= ${OPENSEARCH_INITIAL_ADMIN_PASSWORD:-D0cker#OpenSearch}
+      - "OPENSEARCH_INITIAL_ADMIN_PASSWORD=D0cker#OpenSearch"
     ulimits:
       memlock:
         soft: -1
@@ -26,7 +26,7 @@ services:
       - shared_net
 
   opensearch-dashboards:
-    image: opensearchproject/opensearch-dashboards:latest
+    image: opensearchproject/opensearch-dashboards:3
     container_name: opensearch-dashboards
     ports:
       - 5601:5601
